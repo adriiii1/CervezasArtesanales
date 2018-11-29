@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "741929951767",
+    "firebase_url": "https://cervezasartesanales-6544a.firebaseio.com",
+    "project_id": "cervezasartesanales-6544a",
+    "storage_bucket": "cervezasartesanales-6544a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:741929951767:android:354c8c8b1dde8476",
+        "android_client_info": {
+          "package_name": "com.example.adri.cervezasartesanales"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "741929951767-odllfcnaqfppu93auvokljbmrloubjtg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDsV93rwxXl3O7xoX7moY4HotvKnEYuwts"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
