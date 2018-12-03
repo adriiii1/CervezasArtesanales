@@ -5,9 +5,9 @@ import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.util.Log
-import com.google.firebase.database.*
 import com.google.gson.Gson
-import android.widget.Toast
+import java.io.IOException
+import java.net.URL
 
 
 class ListaCervezas : AppCompatActivity() {
@@ -15,38 +15,13 @@ class ListaCervezas : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var viewAdapter: RecyclerView.Adapter<*>
     private lateinit var viewManager: RecyclerView.LayoutManager
-    private lateinit var dbReference: DatabaseReference
-    private lateinit var database: FirebaseDatabase
     var listCervezas: ArrayList<Cervezas> = arrayListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_lista_cervezas)
 
-        database = FirebaseDatabase.getInstance()
-        dbReference = database.getReference("Cervezas")
-        val db = dbReference.child("cervezas")
-        val dbListener = object : ValueEventListener {
-            override fun onDataChange(dataSnapshot: DataSnapshot) {
-                val gson = Gson()
-                listCervezas.clear()
-                var num = dataSnapshot.childrenCount
-                for (obj in dataSnapshot.children) {
-                    var cerveza = obj.value
-                    Log.d("cerveza", dataSnapshot.toString())
-                    var reg: Cervezas = gson.fromJson(cerveza.toString(), Cervezas::class.java)
-                    listCervezas.add(reg)
-                }
-            }
-
-            override fun onCancelled(databaseError: DatabaseError) {
-                throw databaseError.toException()
-            }
-        }
-        dbReference.child("cervezas").addValueEventListener(dbListener)
-
-        var cerveza = Cervezas(0, "As", "sad", "33cl", 2.0)
-        listCervezas.add(cerveza)
+        URLJsonObjeto()
 
         viewManager = LinearLayoutManager(this)
         viewAdapter = miAdapter(listCervezas)
@@ -56,5 +31,30 @@ class ListaCervezas : AppCompatActivity() {
             layoutManager = viewManager
             adapter = viewAdapter
         }
+    }
+
+    fun URLJsonObjeto() {
+        val gson = Gson()
+        try {
+            val json = leerUrl("http://iesayala.ddns.net/digAdrian/jason.php")
+            val cervezass = gson.fromJson(json, cervezasArray::class.java)
+            for (item in cervezass.cervezas!!.iterator()) {
+                listCervezas.add(item)
+            }
+        } catch (e: Exception) {
+            Log.d("RESULTADO", "error")
+        }
+    }
+
+    private fun leerUrl(urlString:String): String{
+        val response = try {
+            URL(urlString)
+                .openStream()
+                .bufferedReader()
+                .use { it.readText() }
+        } catch (e: IOException) {
+            "Error with ${e.message}."
+        }
+        return response
     }
 }
