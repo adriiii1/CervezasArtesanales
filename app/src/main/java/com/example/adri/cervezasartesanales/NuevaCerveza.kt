@@ -25,10 +25,10 @@ class NuevaCerveza : AppCompatActivity() {
     }
 
     fun loadDatabase(firebaseData: DatabaseReference) {
-            val cerveza=Cervezas(txtId.text.toString().toLong(),txtNom.text.toString(),
-                txtAp.text.toString(),txtVol.text.toString(),txtPrecio.text.toString().toDouble())
-            val key = firebaseData.child("cervezas").push().key
-            firebaseData.child("cervezas").child(key!!).setValue(cerveza)
+        val cerveza=Cervezas(0,txtNom.text.toString(),
+            txtAp.text.toString(),txtVol.text.toString(),txtPrecio.text.toString().toDouble())
+        val key = firebaseData.child("cervezas").push().key
+        firebaseData.child("cervezas").child(key!!).setValue(cerveza)
     }
 
 

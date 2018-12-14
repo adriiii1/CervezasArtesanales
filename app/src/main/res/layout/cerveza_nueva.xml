@@ -14,7 +14,8 @@
             android:id="@+id/btIns"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginTop="16dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp" style="@style/Widget.AppCompat.Button.Colored"/>
+            android:layout_marginRight="16dp" style="@style/Widget.AppCompat.Button.Colored"
+            android:textColor="@color/colorBackground"/>
     <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -24,7 +25,8 @@
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginLeft="16dp" android:layout_marginStart="16dp" android:layout_marginTop="16dp"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toStartOf="@+id/btIns"
-            android:layout_marginEnd="47dp" android:layout_marginRight="47dp" android:textColor="@android:color/white"/>
+            android:layout_marginEnd="47dp" android:layout_marginRight="47dp" android:textColor="@android:color/white"
+            android:textColorHint="@color/colorAccent" android:hint="Marca"/>
     <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -32,7 +34,8 @@
             android:ems="10"
             android:id="@+id/txtAp" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginLeft="16dp" android:layout_marginStart="16dp" android:layout_marginTop="16dp"
-            app:layout_constraintTop_toBottomOf="@+id/txtNom" android:textColor="@android:color/white"/>
+            app:layout_constraintTop_toBottomOf="@+id/txtNom" android:textColor="@android:color/white"
+            android:hint="Nombre" android:textColorHint="@color/colorAccent"/>
     <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -41,7 +44,7 @@
             app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="16dp"
             android:layout_marginStart="16dp" android:layout_marginTop="16dp"
             app:layout_constraintTop_toBottomOf="@+id/txtAp" android:inputType="text"
-            android:textColor="@android:color/white"/>
+            android:textColor="@android:color/white" android:hint="Volumen" android:textColorHint="@color/colorAccent"/>
     <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -50,14 +53,6 @@
             android:id="@+id/txtPrecio"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="16dp"
             android:layout_marginStart="16dp" android:layout_marginTop="16dp"
-            app:layout_constraintTop_toBottomOf="@+id/txtVol" android:textColor="@android:color/white"/>
-    <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="text"
-            android:ems="10"
-            android:id="@+id/txtId"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="16dp"
-            android:layout_marginStart="16dp" android:layout_marginTop="16dp"
-            app:layout_constraintTop_toBottomOf="@+id/txtPrecio" android:textColor="@android:color/white"/>
+            app:layout_constraintTop_toBottomOf="@+id/txtVol" android:textColor="@android:color/white"
+            android:hint="Precio" android:textColorHint="@color/colorAccent"/>
 </android.support.constraint.ConstraintLayout>

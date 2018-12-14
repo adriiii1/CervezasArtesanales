@@ -23,10 +23,11 @@ class miAdapter(private val listCervezas: ArrayList<Cervezas>) :
         p0.volumen.text = "Volumen: "+listCervezas[p1].volumen
         p0.precio.text = "Precio: "+listCervezas[p1].precio.toString()
         when {
-            listCervezas[p1].fotoId == 0.toLong() -> p0.marcaFoto.setImageResource(portolobo)
-            listCervezas[p1].fotoId == 1.toLong() -> p0.marcaFoto.setImageResource(alpujarra)
-            listCervezas[p1].fotoId == 2.toLong() -> p0.marcaFoto.setImageResource(mammooth)
-            listCervezas[p1].fotoId == 3.toLong() -> p0.marcaFoto.setImageResource(kirin)
+            listCervezas[p1].fotoId == 0.toLong() -> p0.marcaFoto.setImageResource(defaultbirra)
+            listCervezas[p1].fotoId == 1.toLong() -> p0.marcaFoto.setImageResource(portolobo)
+            listCervezas[p1].fotoId == 2.toLong() -> p0.marcaFoto.setImageResource(alpujarra)
+            listCervezas[p1].fotoId == 3.toLong() -> p0.marcaFoto.setImageResource(mammooth)
+            listCervezas[p1].fotoId == 4.toLong() -> p0.marcaFoto.setImageResource(kirin)
         }
     }
 
